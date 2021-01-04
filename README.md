@@ -18,11 +18,31 @@ Jリーグの観戦録、見たい試合の備忘録、試合の感想や情報�
 ### 主な利用シーン
 自分が見た試合・選手のレビュー。見たい試合の備忘録。サポーター同士の意見交換。
 
+### 機能一覧
+##ユーザー側
+-新規登録
+-ログイン・ログアウト
+-試合一覧、詳細表示
+-フォロー機能
+-レビュー作成・一覧表示
+-クリップ機能
+-いいね機能
+-コメント機能
+-ユーザー名やチーム名での検索
+
+##管理者側
+-ログイン・ログアウト
+-ユーザー一覧、詳細の閲覧
+-試合一覧、詳細表示
+-試合追加、チーム追加
+-ユーザー名やチーム名での検索
+
+
 ## 設計書
 作成後記述します。
 
 ## チャレンジ要素一覧
-https://docs.google.com/spreadsheets/d/10JjKGOYF_XZ784bWXK7ttFr1zSEk4XW-EPKn-YBaM7A/edit#gid=0
+[Google Sheets](https://docs.google.com/spreadsheets/d/10JjKGOYF_XZ784bWXK7ttFr1zSEk4XW-EPKn-YBaM7A/edit#gid=0)
 
 ## 開発環境
 - OS：Linux(WindowsOS)
