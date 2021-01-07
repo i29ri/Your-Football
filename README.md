@@ -39,7 +39,8 @@ Jリーグの観戦録、見たい試合の備忘録、試合の感想や情報�
 
 
 ## 設計書
-作成後記述します。
+- [UI FLOW](https://app.diagrams.net/#G1b1_H3XxMl9NhrzRSdtyOsQXq9kYwekxV)
+
 
 ## チャレンジ要素一覧
 [Google Sheets](https://docs.google.com/spreadsheets/d/10JjKGOYF_XZ784bWXK7ttFr1zSEk4XW-EPKn-YBaM7A/edit#gid=0)
