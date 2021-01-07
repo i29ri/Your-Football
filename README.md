@@ -40,6 +40,10 @@ Jリーグの観戦録、見たい試合の備忘録、試合の感想や情報�
 
 ## 設計書
 - [UI FLOW](https://app.diagrams.net/#G1b1_H3XxMl9NhrzRSdtyOsQXq9kYwekxV)
+- [ワイヤーフレーム](https://app.diagrams.net/#G1Aa81SvL5Zygn8T46H2VYkKLJOQfdhVOc)
+- [ER図](https://app.diagrams.net/#G1PN8wSaeZgaJDjmfvSeOirCY6cbzNr-QE)
+- [テーブル設計書](https://docs.google.com/spreadsheets/d/1RikkLlXN60UwJQnC3SwvLmFNM4aEHUhf/edit#gid=577544585)
+- [アプリケーション詳細書](https://docs.google.com/spreadsheets/d/1uYNWBr4hRiE5NCLM0t2U0Vg-0LtUBzYA/edit#gid=549108681)
 
 
 ## チャレンジ要素一覧
