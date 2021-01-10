@@ -1,0 +1,21 @@
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th>ユーザーID</th>
+      <th>ニックネーム</th>
+      <th>アイコン</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.yourfoot_ID %></td>
+        <td><%= user.nickname %></td>
+        <td><%#= user.profile_image %></td>
+        <td><%= render 'user_relationships/follow_button', user: @user %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
