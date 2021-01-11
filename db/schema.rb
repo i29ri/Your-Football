@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_09_165423) do
+ActiveRecord::Schema.define(version: 2021_01_10_171536) do
+
+  create_table "teams", force: :cascade do |t|
+    t.integer "match_id"
+    t.string "name"
+    t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "user_relationships", force: :cascade do |t|
     t.integer "user_id"
