@@ -22,7 +22,7 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['Your-Football'] %>
+  database: <%= ENV['Your_Football'] %>
   adapter: mysql2
   encoding: utf8mb4
   charset: utf8mb4
