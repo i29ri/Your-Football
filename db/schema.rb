@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_10_171536) do
+ActiveRecord::Schema.define(version: 2021_01_13_163121) do
+
+  create_table "matches", force: :cascade do |t|
+    t.integer "team_relationship_id"
+    t.datetime "match_day"
+    t.integer "home_goal"
+    t.integer "away_goal"
+    t.integer "home_points"
+    t.integer "away_points"
+    t.string "stadium_name"
+    t.boolean "is_held", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "season"
+    t.integer "section"
+  end
+
+  create_table "team_relationships", force: :cascade do |t|
+    t.integer "home_id"
+    t.integer "away_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "teams", force: :cascade do |t|
     t.integer "match_id"
