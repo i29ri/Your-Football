@@ -12,6 +12,8 @@ class User < ApplicationRecord
   # ==============バリデーション ================================
   # ニックネームは２～１４字まで　一意を要求
   validates :nickname, presence: true, uniqueness: true, length: { in: 2..14 }
+  validates :team_id, presence: true, uniqueness: true, length: { in: 2..14 }
+  
   # yourfootIDは半角英数字のみの４～２０字　一意を要求
   VALID_YOURFOOTID_REGEX = /\A[a-z0-9]+\z/
   validates :yourfoot_ID, presence: true, uniqueness: true, length: { in: 4..20 }, format: { with: VALID_YOURFOOTID_REGEX }
@@ -27,6 +29,8 @@ class User < ApplicationRecord
   has_many :reverse_of_user_relationships, class_name: 'UserRelationship', foreign_key: 'follow_id', dependent: :destroy
   #followersクラスに、中間テーブル(reverse_of_user_relationships)の（user_id）を参考に、（follow_id）取得するよう要求
   has_many :followers, through: :reverse_of_user_relationships, source: :user
+  #Userは推しチームを１チーム持つことができる
+  belongs_to :team
   # ==================メソッド===================================
   #　user/show,user/editページにアクセスした際のURLを yourfootIDで表示
   def to_param

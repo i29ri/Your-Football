@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'matches/index'
+  get 'matches/show'
+  get 'team_relationship/create'
+  get 'team_relationship/destroy'
+  resources :teams, only: [:index, :show, :new, :create] do
+    resource :team_relationships, only: [:create, :destroy]
+    get :homes, on: :member
+    get :aways, on: :member
+  end
   devise_for :users
   root to: 'homes#top'
   get 'homes/about'

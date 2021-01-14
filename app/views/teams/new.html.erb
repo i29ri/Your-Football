@@ -1,0 +1,8 @@
+ロゴ登録
+
+<%= form_with model:@team, local:true do |f| %>
+  <label for="inputImage">エンブレム画像</label>
+  <%= attachment_image_tag @team, :image_id, :fill, 60, 60, fallback: "noimage.jpg"%>
+  <%= f.attachment_field :image_id, placeholder: "プロフィール画像" %>
+  <%= f.submit "変更を保存" %>
+<% end %>
