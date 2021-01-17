@@ -1,2 +1,24 @@
-<h1>Matches#index</h1>
-<p>Find me in app/views/matches/index.html.erb</p>
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th>チーム名</th>
+      <th>アイコン</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @matches.each do |match| %>
+      <tr>
+        <td><%= match.season %>年</td>
+        <td>第<%= match.section %>節</td>
+        <td><%= match.match_day %></td>
+        <td><%= match.stadium_name %></td>
+        <td><%= match.team_relationship_id %><p>　vs　</p><%#= team.name %></td>
+        <% if %>
+        
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

@@ -1,3 +1,3 @@
 class Match < ApplicationRecord
-  has_one :team_relationship
+  belongs_to :team_relationship
 end

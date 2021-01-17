@@ -1,11 +1,11 @@
 class Team < ApplicationRecord
 
-  attachment :image_id
+  # attachment :image
 
 
   # ==============アソシエーション ================================
   #Userは推しチームを１チーム持つことができる
-  has_many :users, dependent: :destroy
+  has_many :pickteams, dependent: :destroy
 
 # ====================自分がフォローしているユーザーとの関連 ===================================
   #フォローする側のUserから見て、フォローされる側のUserを(中間テーブルを介して)集める。なので親はfollowing_id(フォローする側)

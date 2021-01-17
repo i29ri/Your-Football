@@ -2,7 +2,7 @@
 <p>Your Football ID</p>
 <p><%= @user.yourfoot_ID %></p>
 
-<%= form_with model:@user, local:true do |f| %>
+<%= form_with (model:[@user, @pickteam], local: true) do |f| %>
   <label for="inputName">ニックネーム</label>
   <%= f.text_field :nickname, autofocus: true %>
   <label for="inputImage">アイコン画像</label>
