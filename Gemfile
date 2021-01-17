@@ -72,3 +72,7 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+gem 'pry-byebug'
+group :development, :test do
+  gem 'awesome_print'
+end

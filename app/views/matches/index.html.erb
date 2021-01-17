@@ -13,9 +13,11 @@
         <td>第<%= match.section %>節</td>
         <td><%= match.match_day %></td>
         <td><%= match.stadium_name %></td>
-        <td><%= match.team_relationship_id %><p>　vs　</p><%#= team.name %></td>
+        <td><%= match.team_relationship_id %><%= match.home_goal %></td>
+        <td><p>　vs　</p></td>
+        <td><%= match.team_relationship_id %><%= match.away_goal %></td>
         <% if %>
-        
+
         <% end %>
       </tr>
     <% end %>
