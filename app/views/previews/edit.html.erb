@@ -1,2 +1,7 @@
-<h1>Previews#edit</h1>
-<p>Find me in app/views/previews/edit.html.erb</p>
+<h1>Previews#new</h1>
+<div class="new-comment">
+  <%= form_with(model:@preview, url: match_previews_path, local: true) do |f| %>
+    <%= f.text_area :comment, size: "70x10",placeholder: "1000文字以内でご入力ください" %>
+    <%= f.submit "送信する" %>
+  <% end %>
+</div>

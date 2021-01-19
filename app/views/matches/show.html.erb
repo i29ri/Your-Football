@@ -4,18 +4,28 @@
     <tr>
       <th>チーム名</th>
       <th>アイコン</th>
-      <th>試合一覧</th>
+      <th>開催日</th>
+      <th>試合会場</th>
+      <th>対戦カード</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
     <tbody>
      <tr>
         <td><%= @match.season %>年</td>
         <td>第<%= @match.section %>節</td>
-        <td><%= @match.match_day %></td>
+        <td><%= @match.match_day.strftime('%Y/%m/%d') %></td>
         <td><%= @match.stadium_name %></td>
-        <td><%= @match.team_relationship_id %><%= @match.home_goal %></td>
-        <td><p>　vs　</p></td>
-        <td><%= @match.team_relationship_id %><%= @match.away_goal %></td>
+        <td>
+          <%= link_to team_path(@match.team_relationship.home) do %>
+            <%= @match.team_relationship.home.name %><%= @match.home_goal %>
+          <% end %>
+          <p> vs </p>
+          <%= link_to team_path(@match.team_relationship.home) do %>
+            <%= @match.team_relationship.away.name %><%= @match.away_goal %>
+          <% end %>
+        </td>
+
         <td><p><%= "#{@match.preview.count} プレビュー" %></p></td>
         <td><p><%= "#{@match.review.count} レビュー" %></p></td>
 

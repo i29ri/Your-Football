@@ -1,0 +1,2 @@
+module PreviewFavoritesHelper
+end

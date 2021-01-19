@@ -31,10 +31,12 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_user_relationships, source: :user
   #Userは推しチームを１チーム持つことができる
   has_one :pickteam, dependent: :destroy
-  #Userは複数のプレビューを書くことができる
+  #Userは複数のレビュープレビューを書くことができる
   has_many :preview, dependent: :destroy
-  #Userは複数のレビューを書くことができる
   has_many :review, dependent: :destroy
+  #Userは複数のレビュープレビューにいいねすることができる
+  has_many :preview_favorites, dependent: :destroy
+  has_many :review_favorites, dependent: :destroy
 
   # ==================メソッド===================================
   #　user/show,user/editページにアクセスした際のURLを yourfootIDで表示

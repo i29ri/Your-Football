@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_18_221242) do
+ActiveRecord::Schema.define(version: 2021_01_19_062334) do
 
   create_table "matches", force: :cascade do |t|
     t.integer "team_relationship_id"
@@ -34,10 +34,24 @@ ActiveRecord::Schema.define(version: 2021_01_18_221242) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "preview_favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "preview_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "previews", force: :cascade do |t|
     t.text "comment"
     t.integer "user_id"
     t.integer "match_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "review_favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -14,10 +14,16 @@ Rails.application.routes.draw do
   get '/users/:yourfoot_ID/followers', to: 'users#followers', as: 'followers'
 
   resources :pickteams, only: [:create, :update, :destroy]
+
   resources :matches, only: [:index, :show] do
-    resources :previews, except: [:index]
-    resources :reviews, except: [:index]
+    resources :previews, except: [:index] do
+      resources :preview_favorites, only: [:index, :create, :destroy]
+    end
+    resources :reviews, except: [:index] do
+      resources :review_favorites, only: [:index, :create, :destroy]
+    end
   end
+
   resources :teams, only: [:index, :show, :new, :create] do
     resource :team_relationships, only: [:create, :destroy]
     get :homes, on: :member
