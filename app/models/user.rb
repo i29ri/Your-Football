@@ -30,7 +30,12 @@ class User < ApplicationRecord
   #followersクラスに、中間テーブル(reverse_of_user_relationships)の（user_id）を参考に、（follow_id）取得するよう要求
   has_many :followers, through: :reverse_of_user_relationships, source: :user
   #Userは推しチームを１チーム持つことができる
-  has_one :pickteam
+  has_one :pickteam, dependent: :destroy
+  #Userは複数のプレビューを書くことができる
+  has_many :preview, dependent: :destroy
+  #Userは複数のレビューを書くことができる
+  has_many :review, dependent: :destroy
+
   # ==================メソッド===================================
   #　user/show,user/editページにアクセスした際のURLを yourfootIDで表示
   def to_param

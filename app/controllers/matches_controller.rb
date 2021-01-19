@@ -4,7 +4,8 @@ class MatchesController < ApplicationController
   end
 
   def show
-    @matches = Match.find(params[:id])
+    @match = Match.find(params[:id])
+    @previews = Preview.all
   end
 
   def create

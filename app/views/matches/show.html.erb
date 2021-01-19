@@ -9,17 +9,30 @@
   </thead>
     <tbody>
      <tr>
-        <td><%= match.season %>年</td>
-        <td>第<%= match.section %>節</td>
-        <td><%= match.match_day %></td>
-        <td><%= match.stadium_name %></td>
-        <td><%= match.team_relationship_id %><%= match.home_goal %></td>
+        <td><%= @match.season %>年</td>
+        <td>第<%= @match.section %>節</td>
+        <td><%= @match.match_day %></td>
+        <td><%= @match.stadium_name %></td>
+        <td><%= @match.team_relationship_id %><%= @match.home_goal %></td>
         <td><p>　vs　</p></td>
-        <td><%= match.team_relationship_id %><%= match.away_goal %></td>
+        <td><%= @match.team_relationship_id %><%= @match.away_goal %></td>
+        <td><p><%= "#{@match.preview.count} プレビュー" %></p></td>
+        <td><p><%= "#{@match.review.count} レビュー" %></p></td>
+
         <% if %>
 
         <% end %>
       </tr>
   </tbody>
 </table>
+
+<%= link_to "プレビューを投稿する", new_match_preview_path(@match) %>
+<%= link_to "レビューを投稿する", new_match_review_path(@match) %>
+
+<% @previews.each do |preview| %>
+  <%= link_to match_preview_path(@match, preview) do %>
+    <%= preview.comment %>
+    <%= preview.user.name %>
+  <% end %>
+<% end %>
 

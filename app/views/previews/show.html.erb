@@ -1,0 +1,17 @@
+<h1>Previews#show</h1>
+<p>ここに試合詳細を載せる</p>
+
+<%= link_to "プレビューを投稿する", new_match_preview_path(@match) %>
+<%= link_to "レビューを投稿する", new_match_review_path(@match) %>
+
+
+<div class="preview-body">
+  <p>ユーザーネーム：<%= @preview.user.nickname %></p>
+  <p>プレビュー：<%= @preview.comment %></p>
+  <p>投稿日時：<%= @preview.created_at.strftime('%Y/%m/%d') %></p>
+  <% if @preview.user_id == current_user.id %>
+    <%= link_to "削除", match_preview_path(@preview), method: :delete %>
+  <% end %>
+</div>
+
+
