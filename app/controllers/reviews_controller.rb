@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = review.find(params[:id])
+    @review = Review.find(params[:id])
     @match = Match.find(params[:id])
   end
 

@@ -1,2 +1,11 @@
-id,match_day,season,section,stadium_name,is_held,home_goal,away_goal,home_points,away_points,team_relationship_id
-1,2020/02/26,2021,1,等々力陸上競技場,false,,,,,1
+﻿id,match_day,season,section,stadium_name,is_held,home_goal,away_goal,home_points,away_points
+1,2020/02/26,2021,1,等々力陸上競技場,false,,,,,,,,,,
+2,2020/02/27,2021,1,札幌ドーム,false,,,,,
+3,2020/02/27,2021,1,県立カシマサッカースタジアム,false,,,,,
+4,2020/02/27,2021,1,埼玉スタジアム２００２,false,,,,,
+5,2020/02/27,2021,1,レモンガススタジアム平塚,false,,,,,
+6,2020/02/27,2021,1,ヤンマースタジアム長居,false,,,,,
+7,2020/02/27,2021,1,ノエビアスタジアム神戸,false,,,,,
+8,2020/02/27,2021,1,エディオンスタジアム広島,false,,,,,
+9,2020/02/27,2021,1,昭和電工ドーム大分,false,,,,,
+10,2020/02/28,2021,1,ベスト電器スタジアム,false,,,,,

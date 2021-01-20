@@ -17,10 +17,10 @@ Rails.application.routes.draw do
 
   resources :matches, only: [:index, :show] do
     resources :previews, except: [:index] do
-      resources :preview_favorites, only: [:index, :create, :destroy]
+      resources :preview_favorites, only: [:create, :destroy]
     end
     resources :reviews, except: [:index] do
-      resources :review_favorites, only: [:index, :create, :destroy]
+      resources :review_favorites, only: [:create, :destroy]
     end
   end
 
