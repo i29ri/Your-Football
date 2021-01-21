@@ -1,0 +1,14 @@
+<%= link_to user_path(@review.user) do %>
+  <%= @review.user.nickname %>
+<% end %>
+<%= @review.comment %>
+
+<% if user_signed_in? %>
+  <% if current_user.favorited_by?(@review.id) %>
+    <td><%= link_to 'いいねを外す', destroy_review_favorite_path(@review), method: :DELETE, remote: :true %> <%= @review.review_favorites.count %></td>
+  <% else %>
+    <td><%= link_to 'いいね', create_review_favorite_path(@review), method: :POST, remote: :true %> <%= @review.review_favorites.count %></td>
+  <% end %>
+  <% else %>
+    <p><span>いいね数: </span><%= @review.review_favorites.count %></p>
+<% end %>

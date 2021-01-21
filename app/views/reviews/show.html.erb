@@ -1,6 +1,6 @@
 <h1>Reviews#show</h1>
 <p>上部に試合情報</p>
 
-  <tr id="review_<%= @review.id %>">
-      <%= render 'review', review: @review %>
-  </tr>
+          <div id="review_fav_buttons_<%= @review.id %>">
+             <%= render partial: 'review_favorites/review_fav', locals: { review: @review} %>
+          </div>
