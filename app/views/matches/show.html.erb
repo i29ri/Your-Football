@@ -40,7 +40,7 @@
 <%= link_to "レビューを投稿する", new_match_review_path(@match) %>
 
 <% @reviews.each do |review| %>
-  <%= link_to match_review_path(review) do %>
+  <%= link_to match_review_path(review.match) do %>
     <%= review.comment %>
     <%= review.user.nickname %>
   <% end %>

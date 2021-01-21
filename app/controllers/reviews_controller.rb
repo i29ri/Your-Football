@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, only: [:show]
+
   def new
     @review = Review.new
   end
@@ -13,8 +15,8 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    @match = Match.find(params[:match_id])
     @review = Review.find(params[:id])
-    @match = Match.find(params[:id])
   end
 
   def edit
