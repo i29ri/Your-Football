@@ -17,17 +17,17 @@ Rails.application.routes.draw do
 
   resources :matches, only: [:index, :show] do
     resources :previews, except: [:index] do
-      resources :preview_favorites, only: [:index, :create, :destroy]
+      # resources :preview_favorites, only: [:create, :destroy]
     end
     resources :reviews, except: [:index] do
-      resources :review_favorites, only: [:index, :create, :destroy]
+      # resources :review_favorites, only: [:create, :destroy]
     end
   end
+  post 'review_favorite/:id' => 'review_favorites#create', as: 'create_review_favorite'
+  delete 'review_favorite/:id' => 'review_favorites#destroy', as: 'destroy_review_favorite'
 
-  resources :teams, only: [:index, :show, :new, :create] do
+  resources :teams, only: [:index, :show] do
     resource :team_relationships, only: [:create, :destroy]
-    get :homes, on: :member
-    get :aways, on: :member
   end
 
 end

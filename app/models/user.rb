@@ -68,4 +68,8 @@ class User < ApplicationRecord
     super && self.is_deleted == '有効'
   end
 
+  def favorited_by?(review_id)
+    review_favorites.where(review_id: review_id).exists?
+  end
+
 end

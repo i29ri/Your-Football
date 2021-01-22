@@ -4,8 +4,6 @@ class UsersController < ApplicationController
   end
 
   def show
-
-    
     @user = User.find_by!(yourfoot_ID: params[:yourfoot_ID])
   end
 
