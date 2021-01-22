@@ -17,13 +17,11 @@
         <td><%= @match.match_day.strftime('%Y/%m/%d') %></td>
         <td><%= @match.stadium_name %></td>
         <td>
-          <%= link_to team_path(@match.team_relationships.name) do %>
-            <%= @match.team_relationships.name %><%= @match.home_goal %>
-          <% end %>
-          <p> vs </p>
-          <%= link_to team_path(@match.team_relationships.name) do %>
-            <%= @match.team_relationships.name %><%= @match.away_goal %>
-          <% end %>
+          <%= link_to match_path(@match) do %>
+          <%= @match.team_relationships.find_by(home_flg:true).team.name %><%= @match.home_goal %> vs
+          <%= @match.team_relationships.find_by(home_flg:false).team.name %><%= @match.away_goal %>
+        <% end %>
+      </tr>
         </td>
 
         <td><p><%= "#{@match.preview.count} プレビュー" %></p></td>
@@ -53,3 +51,12 @@
   <%# end %>
 <%# end %>
 
+<script>
+  $('.review-rating').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>

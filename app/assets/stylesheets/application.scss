@@ -14,3 +14,23 @@
  *= require_self
  */
 @import "bootstrap";
+@font-face {
+  font-family:'ipaexg';
+  src: asset_url('/assets/ipaexg.ttf');
+}
+
+
+html, body,{
+  height: 100%;
+  width: 100%;
+  background-color: #15CE0D;
+  color: black;
+  font-family: ipaexg;
+}
+a {
+  color: black;
+}
+
+header {
+  background-color: #106744;
+}

@@ -20,17 +20,20 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = review.find(params[:id])
+    @review = Review.find(params[:id])
+    @match = Match.find(params[:match_id])
   end
 
   def update
-    @review = review.find(params[:id])
+    @match = Match.find(params[:match_id])
+    @review = @match.review.find(params[:id])
+    @review.update(review_params)
   end
 
   def destroy
-    @review = review.find(params[:id])
+    @review = Review.find(params[:id])
     @review.destroy
-    redirect_to match_path(@match), notice: 'プレビューを削除しました'
+    redirect_to match_path(@match), notice: 'レビューを削除しました'
   end
 
   private

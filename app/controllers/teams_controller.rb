@@ -15,6 +15,6 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     # @team = TeamRelationship.find(params[:home_id], [:away_id])
     # @team = Match.find(params[id])
-    @matches = @team.team_relationship.matches
+    @matches = @team.team_relationships.joins(:match).order("matches.match_day DESC")
   end
 end
