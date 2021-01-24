@@ -1,0 +1,20 @@
+<% @timelines.each do |timeline| %>
+  <% if timeline.class == "Preview" %>
+    <%# Reviewの表示 %>
+    <p>レビュー</p>
+    <%= timeline.user.nickname %>
+    <%= timeline.comment %>
+    <%= timeline.id %>
+    <td><%= attachment_image_tag timeline.user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg"%></td>
+
+  <% else %>
+    <%# Previewの表示 %>
+    <p>プレビュー</p>
+    <%= timeline.id %>
+    <%= timeline.user.nickname %>
+    <td><%= attachment_image_tag timeline.user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg"%></td>
+    <%= timeline.comment %>
+    <%= timeline.created_at.strftime('%Y/%m/%d %H:%M') %>
+
+  <% end %>
+<% end %>
