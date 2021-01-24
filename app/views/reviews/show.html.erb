@@ -4,6 +4,7 @@
 <div id="review_fav_buttons_<%= @review.id %>">
   <%= render partial: 'review_favorites/review_fav', locals: { review: @review} %>
 </div>
+
 <% if @review.user == current_user %>
   <td><%= link_to 'Edit', edit_match_review_path(@match, @review), class: "btn-sm btn-success edit_review_#{@review.id}" %></td>
   <td><%= link_to 'Destroy', match_review_path(@review), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn-sm btn-danger destroy_review_#{@review.id}"%></td>

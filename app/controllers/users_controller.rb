@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :ensure_correct_user, only: [:edit, :update, :withdraw]
+  before_action :check_guest, only: [:update ,:withdraw]
+
   def index
     @users = User.all
   end
@@ -62,6 +65,19 @@ class UsersController < ApplicationController
   end
   def pickteam_params
     params.require(:user).permit(:team_id)
+  end
+
+  def ensure_correct_user
+    @user = User.find_by!(yourfoot_ID: params[:yourfoot_ID])
+    if current_user.id != @user.id
+      redirect_back(fallback_location: root_path)
+    end
+  end
+  def check_guest
+    if current_user.email == 'test1@test.co.jp'
+      flash[:danger] = "テストユーザーのため編集できません"
+      redirect_to user_path(current_user)
+    end
   end
 
 end
