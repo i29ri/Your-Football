@@ -1,10 +1,11 @@
-<h1>Homes#top</h1>
-
-
-<h1>開発頑張りましょう！！！！！！！！！！！！！！！！</h1>
-
-
-新規登録はこちらへ
-
-CIテスト
-1/17
+<% if user_signed_in? %>
+  <%= render 'timeline', user: current_user %>
+<% else %>
+  <h1>Homes#top</h1>
+  
+  
+  <h1>開発頑張りましょう！！！！！！！！！！！！！！！！</h1>
+  
+  
+  新規登録はこちらへ
+<% end %>
