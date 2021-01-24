@@ -9,3 +9,23 @@
   <td><%= link_to 'Edit', edit_match_review_path(@match, @review), class: "btn-sm btn-success edit_review_#{@review.id}" %></td>
   <td><%= link_to 'Destroy', match_review_path(@review), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn-sm btn-danger destroy_review_#{@review.id}"%></td>
 <% end %>
+
+<div class="comments">
+<p>コメント件数：<%= @review.review_comments.count %></p>
+<% @review.review_comments.each do |review_comment| %>
+  <%= attachment_image_tag review_comment.user, :profile_image, :fill, 30, 30, fallback: "noimage.jpg" %>
+  <%= review_comment.user.nickname %>
+  <%= review_comment.created_at.strftime('%Y/%m/%d') %><%= review_comment.comment %>
+  <% if review_comment.user == current_user %>
+  <div class="comment-delete">
+    <%= link_to "削除", match_review_review_comment_path(@match, @review, review_comment.id), method: :delete %>
+  </div>
+  <% end %>
+<% end %>
+</div>
+<div class="new-comment">
+<%= form_with(model:[@match, @review, @review_comment], local: true) do |f| %>
+  <%= f.text_area :comment, rows:'2',placeholder: "コメントをここに" %>
+  <%= f.submit "送信する" %>
+<% end %>
+</div>

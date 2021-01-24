@@ -1,0 +1,1 @@
+$('#review_comment_buttons_<%= @review.id %>').html("<%= j(render partial: 'review_comments/review_comment', locals: {review: @review}) %>");

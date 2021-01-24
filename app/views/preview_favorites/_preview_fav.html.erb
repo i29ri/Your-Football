@@ -1,0 +1,31 @@
+<%= link_to user_path(@preview.user) do %>
+  <%= @preview.user.nickname %>
+<% end %>
+<%= @preview.comment %>
+評価：<%= @preview.rating %>
+
+<% if user_signed_in? %>
+  <% if current_user.favorited_by?(@preview.id) %>
+    <td><%= link_to 'いいねを外す', destroy_preview_favorite_path(@preview), method: :DELETE, remote: :true %> <%= @preview.preview_favorites.count %></td>
+  <% else %>
+    <td><%= link_to 'いいね', create_preview_favorite_path(@preview), method: :POST, remote: :true %> <%= @preview.preview_favorites.count %></td>
+  <% end %>
+  <% else %>
+    <p><span>いいね数: </span><%= @preview.preview_favorites.count %></p>
+<% end %>
+
+
+
+
+<div class="preview-rating" data-score="<%= preview.rating %>"></div>
+
+<script>
+  $('.preview-rating').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+    half: true
+  });
+</script>

@@ -1,14 +1,19 @@
-<h1>レビュー編集</h1>
+<h1>レビュー投稿</h1>
 <div class="new-comment">
-  <%= form_with(model:[@match, @review], url: match_review_path(@match.id, @review), method: :patch, local: true) do |f| %>
+  <%= form_with(model:[@match, @review], url: match_review_path(@match, @review), local: true) do |f| %>
     <%= f.text_area :comment, size: "70x10",placeholder: "1000文字以内でご入力ください" %>
+
+  <div id="rating-form">
+    <label>Rating</label>
+  </div>
+
 <script>
   $('#rating-form').raty({
     path: '/assets/',
     scoreName: 'review[rating]'
   });
 </script>
-  
+
 
     <%= f.submit "送信する" %>
   <% end %>
