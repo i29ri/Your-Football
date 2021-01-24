@@ -18,10 +18,8 @@
         <td><%= match.match_day.strftime('%Y/%m/%d') %></td>
         <td><%= match.stadium_name %></td>
         <td><%= link_to match_path(match) do %>
-          <%= match.team_relationship.home.name %><%= match.home_goal %> vs <%= match.team_relationship.away.name %><%= match.away_goal %>
-        <% end %>
-        <% if %>
-
+          <%= match.team_relationships.find_by(home_flg:true).team.name %><%= match.home_goal %> vs
+          <%= match.team_relationships.find_by(home_flg:false).team.name %><%= match.away_goal %>
         <% end %>
       </tr>
     <% end %>

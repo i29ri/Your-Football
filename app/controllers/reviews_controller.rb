@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, only: [:show]
+
   def new
     @review = Review.new
   end
@@ -13,28 +15,39 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = review.find(params[:id])
-    @match = Match.find(params[:id])
+    @match = Match.find(params[:match_id])
+    @review = Review.find(params[:id])
+    @review_comment = ReviewComment.new
+
+    if @match.review.blank?
+      @average_review = 0
+    else
+      @average_review = @match.review.average(:rating).round(2)
+    end
   end
 
   def edit
-    @review = review.find(params[:id])
+    @review = Review.find(params[:id])
+    @match = Match.find(params[:match_id])
   end
 
   def update
-    @review = review.find(params[:id])
+    @match = Match.find(params[:match_id])
+    @review = @match.review.find(params[:id])
+    @review.update(review_params)
+    redirect_to match_path(@match), notice: 'レビューを更新しました'
   end
 
   def destroy
-    @review = review.find(params[:id])
+    @review = Review.find(params[:id])
     @review.destroy
-    redirect_to match_path(@match), notice: 'プレビューを削除しました'
+    redirect_to match_path(@match), notice: 'レビューを削除しました'
   end
 
   private
 
   def review_params
-    params.require(:review).permit(:comment)
+    params.require(:review).permit(:comment, :rating)
   end
 end
 

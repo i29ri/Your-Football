@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <% if user_signed_in? %>
   <%= render 'timeline', user: current_user %>
 <% else %>
@@ -9,3 +10,16 @@
   
   新規登録はこちらへ
 <% end %>
+=======
+<h1>YourFootballへようこそ</h1>
+
+<p>ログインなしでも閲覧できますが、レビュー・プレビューをつけることはできません。</p>
+
+<div class="main-visual__sign">
+  <%= link_to new_user_registration_path,class:"btn green-btn mr-2" do %>Sign up<% end %>
+  <%= link_to new_user_session_path,class:"btn blue-btn" do %>Login<% end %>
+  <%# かんたんログイン %>
+  <%= render 'users/sessions/testuser' %>
+  <p>※ かんたんログインはポートフォリオ閲覧用です。<br>メールアドレス等を入力せず閲覧いただけます。</p>
+</div>
+>>>>>>> 231ee6b9a9677c622bfe76bff6b1f281a789c82f

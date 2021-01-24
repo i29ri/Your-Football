@@ -1,0 +1,11 @@
+class TimelinesController < ApplicationController
+  def index
+  reviews = Review.all
+  previews = Preview.all
+
+  # それぞれの複数インスタンスを1つの配列にする
+  @timelines = reviews | previews
+  # 作成降順に並び替え
+  @timelines.sort!{ |a, b| b.created_at <=> a.created_at }
+  end
+end

@@ -17,14 +17,14 @@ end
 
 CSV.foreach('db/css/team-relationships_index.csv', headers: true) do |row|
   TeamRelationship.create(
-    home_id: row['home_id'],
-    away_id: row['away_id'],
+    team_id: row['team_id'],
+    match_id: row['match_id'],
+    home_flg: row['home_flg'],
   )
 end
 
 CSV.foreach('db/css/matches_index.csv', headers: true) do |row|
   Match.create(
-    team_relationship_id: row['team_relationship_id'],
     match_day: row['match_day'],
     home_goal: row['home_goal'],
     away_goal: row['away_goal'],
@@ -37,5 +37,5 @@ CSV.foreach('db/css/matches_index.csv', headers: true) do |row|
   )
 end
 
-user = User.new(:email => 'test@test.com', :password => 'testtest', :yourfoot_ID => 'testtest', :nickname => 'testtest')
+user = User.new(:email => 'test1@test.co.jp', :password => 'testuser', :yourfoot_ID => 'testid', :nickname => 'testname')
 user.save!

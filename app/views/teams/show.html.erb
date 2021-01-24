@@ -13,14 +13,15 @@
   </tbody>
 </table>
 
-  <% @matches.each do |match| %>
+    <% @matches.each do |mr| %>
       <tr>
-        <td><%= match.season %>年</td>
-        <td>第<%= match.section %>節</td>
-        <td><%= match.match_day.strftime('%Y/%m/%d') %></td>
-        <td><%= match.stadium_name %></td>
-        <td><%= link_to match_path(match) do %>
-          <%= match.team_relationship.home.name %><%= match.home_goal %> vs <%#= match.team_relationship_id %><%= match.away_goal %>
+        <td><%= mr.match.season %>年</td>
+        <td>第<%= mr.match.section %>節</td>
+        <td><%= mr.match.match_day.strftime('%Y/%m/%d') %></td>
+        <td><%= mr.match.stadium_name %></td>
+        <td><%= link_to match_path(mr.match) do %>
+          <%= mr.match.team_relationships.find_by(home_flg:true).team.name %><%= mr.match.home_goal %> vs
+          <%= mr.match.team_relationships.find_by(home_flg:false).team.name %><%= mr.match.away_goal %>
         <% end %>
       </tr>
     <% end %>

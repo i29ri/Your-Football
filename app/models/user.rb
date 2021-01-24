@@ -34,9 +34,11 @@ class User < ApplicationRecord
   #Userは複数のレビュープレビューを書くことができる
   has_many :preview, dependent: :destroy
   has_many :review, dependent: :destroy
-  #Userは複数のレビュープレビューにいいねすることができる
+  #Userは複数のレビュー・プレビューにいいね・コメントすることができる
   has_many :preview_favorites, dependent: :destroy
   has_many :review_favorites, dependent: :destroy
+  has_many :preview_comments, dependent: :destroy
+  has_many :review_comments, dependent: :destroy
 
   # ==================メソッド===================================
   #　user/show,user/editページにアクセスした際のURLを yourfootIDで表示
@@ -66,6 +68,10 @@ class User < ApplicationRecord
 
   def active_for_authentication?
     super && self.is_deleted == '有効'
+  end
+
+  def favorited_by?(review_id)
+    review_favorites.where(review_id: review_id).exists?
   end
 
 end
