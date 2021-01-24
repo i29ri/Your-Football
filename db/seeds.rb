@@ -37,5 +37,5 @@ CSV.foreach('db/css/matches_index.csv', headers: true) do |row|
   )
 end
 
-user = User.new(:email => 'test@test.com', :password => 'testtest', :yourfoot_ID => 'testtest', :nickname => 'testtest')
+user = User.new(:email => 'test1@test.co.jp', :password => 'testuser', :yourfoot_ID => 'testid', :nickname => 'testname')
 user.save!

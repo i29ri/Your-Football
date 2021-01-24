@@ -1,10 +1,11 @@
-<h1>Homes#top</h1>
+<h1>YourFootballへようこそ</h1>
 
+<p>ログインなしでも閲覧できますが、レビュー・プレビューをつけることはできません。</p>
 
-<h1>開発頑張りましょう！！！！！！！！！！！！！！！！</h1>
-
-
-新規登録はこちらへ
-
-CIテスト
-1/17
+<div class="main-visual__sign">
+  <%= link_to new_user_registration_path,class:"btn green-btn mr-2" do %>Sign up<% end %>
+  <%= link_to new_user_session_path,class:"btn blue-btn" do %>Login<% end %>
+  <%# かんたんログイン %>
+  <%= render 'users/sessions/testuser' %>
+  <p>※ かんたんログインはポートフォリオ閲覧用です。<br>メールアドレス等を入力せず閲覧いただけます。</p>
+</div>

@@ -17,6 +17,11 @@ class ReviewsController < ApplicationController
   def show
     @match = Match.find(params[:match_id])
     @review = Review.find(params[:id])
+    # # if @match.reviews.blank?
+    #   # @average_review = 0
+    # else
+    #   @average_review = @match.reviews.average(:rating).round(2)
+    # end
   end
 
   def edit
@@ -28,6 +33,7 @@ class ReviewsController < ApplicationController
     @match = Match.find(params[:match_id])
     @review = @match.review.find(params[:id])
     @review.update(review_params)
+    redirect_to match_path(@match), notice: 'レビューを更新しました'
   end
 
   def destroy
@@ -39,7 +45,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:comment)
+    params.require(:review).permit(:comment, :rating)
   end
 end
 
