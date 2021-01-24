@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'timelines/index'
   devise_for :users
   root to: 'homes#top'
   get 'homes/about'
+  resource :timelines, only: [:index]
 
   resources :users, param: :yourfoot_ID, only: [:index, :show, :edit, :update]
   get 'users/:yourfoot_ID/preview', to: 'users#preview', as: 'preview'
