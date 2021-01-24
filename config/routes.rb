@@ -17,10 +17,10 @@ Rails.application.routes.draw do
 
   resources :matches, only: [:index, :show] do
     resources :previews, except: [:index] do
-      # resources :preview_favorites, only: [:create, :destroy]
+      resources :preview_comments, only: [:create, :destroy]
     end
     resources :reviews, except: [:index] do
-      # resources :review_favorites, only: [:create, :destroy]
+      resources :review_comments, only: [:create, :destroy]
     end
   end
   post 'review_favorite/:id' => 'review_favorites#create', as: 'create_review_favorite'

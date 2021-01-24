@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_023340) do
+ActiveRecord::Schema.define(version: 2021_01_24_095607) do
 
   create_table "matches", force: :cascade do |t|
     t.datetime "match_day"
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 2021_01_22_023340) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "preview_comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "user_id"
+    t.integer "preview_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "preview_favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "preview_id"
@@ -44,6 +52,14 @@ ActiveRecord::Schema.define(version: 2021_01_22_023340) do
     t.text "comment"
     t.integer "user_id"
     t.integer "match_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "review_comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "user_id"
+    t.integer "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

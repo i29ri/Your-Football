@@ -17,11 +17,13 @@ class ReviewsController < ApplicationController
   def show
     @match = Match.find(params[:match_id])
     @review = Review.find(params[:id])
-    # # if @match.reviews.blank?
-    #   # @average_review = 0
-    # else
-    #   @average_review = @match.reviews.average(:rating).round(2)
-    # end
+    @review_comment = ReviewComment.new
+
+    if @match.review.blank?
+      @average_review = 0
+    else
+      @average_review = @match.review.average(:rating).round(2)
+    end
   end
 
   def edit

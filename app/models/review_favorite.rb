@@ -1,4 +1,6 @@
 class ReviewFavorite < ApplicationRecord
+  # ==============アソシエーション ================================
+  # user,reviewとの１対Nの関係
   belongs_to :user
   belongs_to :review
   # 1人が１つのレビューに対して、１つしかいいねをつけられないようにする

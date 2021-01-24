@@ -1,14 +1,28 @@
-<%= simple_form_for ([@match, @match.reviews.build]) do |f| %>
-  <div id="rating-form">
-    <label>Rating</label>
+<%= form_for ([@match, @match.reviews.build]) do |f| %>
+  <div class="field">
+  <div>
+    <%= f.label :comment%>
+    <%= f.text_field :comment %>
   </div>
-  <%= f.input :comment %>
-  <%= f.button :submit %>
-<% end %>
+
+  <div>
+    <%= f.submit button_value %>
+  </div>
+
+    <div class="form-group row" id="star">
+    <%= f.label :star,'評価 ', class:'col-md-3 col-form-label' %>
+    <%= f.hidden_field :star, id: :review_star %>
+  </div>
 
 <script>
   $('#rating-form').raty({
-    path: '/assets/',
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+
     scoreName: 'review[rating]'
+    score: function() {
+      return $(this).attr('data-score');
+    half: true
   });
 </script>

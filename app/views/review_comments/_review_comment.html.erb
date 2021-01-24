@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+  <% if current_user.favorited_by?(@review.id) %>
+    <td><%= link_to 'コメント削除', match_review_review_comment_path(@review), method: :DELETE, remote: :true %> <%= @review.review_favorites.count %></td>
+  <% else %>
+    <td><%= link_to 'コメント投稿', match_review_review_comments_path(@review.id), method: :POST, remote: :true %> <%= @review.review_favorites.count %></td>
+  <% end %>
+  <% else %>
+    <p><span>コメント数: </span><%= @review.review_comments.count %></p>
+<% end %>
+
+
+
