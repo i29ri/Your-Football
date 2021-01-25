@@ -1,2 +1,7 @@
-<h1>Users#preview</h1>
-<p>Find me in app/views/users/preview.html.erb</p>
+<div>
+  <%= render 'users/show', user: @user %>
+  <%= render 'user_relationships/follow_button', user: @user %>
+</div>
+<div>
+  <%= render 'previews/index', peview: @previews %>
+</div>

@@ -17,4 +17,10 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-//= require jquery.raty.js
+/*global $*/
+
+$(function() {
+    $('.top-image').slick({
+        dots: true,
+    });
+});

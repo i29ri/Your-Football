@@ -1,0 +1,39 @@
+<%= link_to "プレビュー一覧へ", preview_path(@user) %>
+<% @reviews.each do |review| %>
+  <%= link_to match_review_path(review.match.id, review) do %>
+    <%= review.comment %>
+  <% end %>
+  <%= link_to user_path(review.user.yourfoot_ID) do %>
+    <%= review.user.nickname %>
+  <% end %>
+  <div class="review-rating" data-score="<%= review.rating %>"></div>
+
+<% end %>
+
+
+
+  <script>
+    $('.review-rating').raty({
+      readOnly: true,
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      score: function() {
+        return $(this).attr('data-score');
+      half: true
+      }
+    });
+  </script>
+
+  <script>
+    $('.average-review-rating').raty({
+      readOnly: true,
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      score: function() {
+        return $(this).attr('data-score')
+      half: true
+      }
+    });
+  </script>

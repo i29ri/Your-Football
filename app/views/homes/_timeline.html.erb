@@ -1,5 +1,5 @@
 <% @timelines.each do |timeline| %>
-  <% if timeline.class == "Review" %>
+  <% if timeline.class == Review %>
     <%# Reviewの表示 %>
     <p>レビュー</p>
     <%= timeline.user.nickname %>

@@ -1,0 +1,8 @@
+<% @previews.each do |preview| %>
+  <%= link_to match_preview_path(preview.match.id, preview) do %>
+    <%= preview.comment %>
+  <% end %>
+  <%= link_to user_path(preview.user.yourfoot_ID) do %>
+    <%= preview.user.nickname %>
+  <% end %>
+<% end %>

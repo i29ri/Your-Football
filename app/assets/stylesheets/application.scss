@@ -14,23 +14,28 @@
  *= require_self
  */
 @import "bootstrap";
+@import "slick-theme";
+@import "slick";
 @font-face {
   font-family:'ipaexg';
   src: asset_url('/assets/ipaexg.ttf');
 }
 
-
-html, body,{
-  height: 100%;
-  width: 100%;
-  background-color: #15CE0D;
+header {
+  background-color: #A08FD5;
+  height: 50px;
   color: black;
-  font-family: ipaexg;
+}
+footer {
+  background-color: #F9C770;
+
+}
+
+main {
+  background-color: #F5E866;
+  color: black;
+  font-family:"Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
 }
 a {
   color: black;
-}
-
-header {
-  background-color: #106744;
 }

@@ -7,6 +7,7 @@ class HomesController < ApplicationController
     @timelines = reviews | previews
     # 作成降順に並び替え
     @timelines.sort!{ |a, b| b.created_at <=> a.created_at }
+    
   end
 
   def about

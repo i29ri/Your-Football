@@ -1,0 +1,12 @@
+  <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "noimage.jpg"%>
+  <p><%= @user.nickname %></p>
+  <p><%= @user.yourfoot_ID %></p>
+  <p><%= @user.introduction %></p>
+  <% if @user.id == current_user.id %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+  <% end %>
+  <% if @user.pickteam.nil? %>
+     <p>推しチーム：未選択</p>
+   <% else %>
+    <p><%= @user.pickteam.team.name %></p>
+  <% end %>

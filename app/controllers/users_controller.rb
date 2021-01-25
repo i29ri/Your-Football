@@ -8,9 +8,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by!(yourfoot_ID: params[:yourfoot_ID])
+    @reviews = @user.review
+
   end
 
   def preview
+    @user = User.find_by!(yourfoot_ID: params[:yourfoot_ID])
+    @previews = @user.preview
   end
 
   def edit
