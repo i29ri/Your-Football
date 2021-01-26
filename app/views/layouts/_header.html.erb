@@ -4,7 +4,7 @@
   <div class="container">
     <div class="navbar-brand p">
       <%= link_to  root_path do %>
-        <%= image_tag 'yf-logo2.jpg', :size => '170x50' %>
+        <%= image_tag 'yf-logo3.jpg', :size => '170x50' %>
       <% end %>
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,11 +13,6 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
     <% if user_signed_in? %>
-
-      <span class="u h7 text-white strong">
-        ようこそ！<%= current_user.nickname %>さん！
-      </span>
-
       <ul class="navbar-nav">
         <li class="nav-item">
           <%= link_to "マイページ", user_path(current_user), class: "nav-link text-dark" %>

@@ -1,8 +1,9 @@
-<h1>Users#show</h1>
-<div>
+<div class="container user-show-top">
   <%= render 'users/show', user: @user %>
+</div>
+<div class="container user-show-follow">
   <%= render 'user_relationships/follow_button', user: @user %>
 </div>
-<div>
+<div class="container user-show-review">
   <%= render 'reviews/index', review: @reviews %>
 </div>

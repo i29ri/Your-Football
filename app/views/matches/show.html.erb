@@ -17,18 +17,24 @@
         <td><%= @match.match_day.strftime('%Y/%m/%d') %></td>
         <td><%= @match.stadium_name %></td>
         <td>
+          <%= link_to team_path(@match.team_relationships.find_by(home_flg:true).id) do %>
+            <%= @match.team_relationships.find_by(home_flg:true).team.name %>
+          <% end %>
           <%= link_to match_path(@match) do %>
-          <%= @match.team_relationships.find_by(home_flg:true).team.name %><%= @match.home_goal %> vs
-          <%= @match.team_relationships.find_by(home_flg:false).team.name %><%= @match.away_goal %>
-        <% end %>
+            <%= @match.home_goal %>-<%= @match.away_goal %>
+          <% end %>
+          <%= link_to team_path(@match.team_relationships.find_by(home_flg:false).team.id) do %>
+            <%= @match.team_relationships.find_by(home_flg:false).team.name %>
+          <% end %>
+        </td>
       </tr>
       <tr><div class="average-review-rating" data-score=<%= @average_review %>></tr>
         </td>平均レビュー：<%= @average_review %>
        <!--<h2>Average Rating</h2>-->
        <!--<div class="average-review-rating" data-score=<%= @average_review %>>-->
 
-        <td><p><%= "#{@match.preview.count} プレビュー" %></p></td>
-        <td><p><%= "#{@match.review.count} レビュー" %></p></td>
+        <td><p><%= @match.preview.count %>プレビュー</p></td>
+        <td><p><%= @match.review.count %>レビュー</p></td>
 
         <% if %>
 
@@ -40,47 +46,47 @@
 <%= link_to "プレビューを投稿する", new_match_preview_path(@match) %>
 <%= link_to "レビューを投稿する", new_match_review_path(@match) %>
 
-<% @match.review.each do |review| %>
-  <%= link_to match_review_path(@match.id, review.id) do %>
-    <%= review.comment %>
+<% if @match.is_held == true %>
+  <% @match.review.each do |review| %>
+    <%= link_to match_review_path(@match.id, review.id) do %>
+      <%= review.comment %>
+    <% end %>
+    <%= link_to user_path(review.user.yourfoot_ID) do %>
+      <%= review.user.nickname %>
+    <% end %>
+    <div class="review-rating" data-score="<%= review.rating %>"></div>
   <% end %>
-  <%= link_to user_path(review.user.yourfoot_ID) do %>
-    <%= review.user.nickname %>
+<% else %>
+  <% @previews.each do |preview| %>
+    <%= link_to match_preview_path(preview) do %>
+      <%= preview.comment %>
+      <%= preview.user.nickname %>
+    <% end %>
   <% end %>
-  <div class="review-rating" data-score="<%= review.rating %>"></div>
-
 <% end %>
 
-<%# @previews.each do |preview| %>
-  <%#= link_to match_preview_path(preview) do %>
-    <%#= preview.comment %>
-    <%#= preview.user.nickname %>
-  <%# end %>
-<%# end %>
+<script>
+  $('.review-rating').raty({
+    readOnly: true,
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+    score: function() {
+      return $(this).attr('data-score');
+    half: true
+    }
+  });
+</script>
 
-
-  <script>
-    $('.review-rating').raty({
-      readOnly: true,
-      starOn: "<%= asset_path('star-on.png') %>",
-      starOff: "<%= asset_path('star-off.png') %>",
-      starHalf: "<%= asset_path('star-half.png') %>",
-      score: function() {
-        return $(this).attr('data-score');
-      half: true
-      }
-    });
-  </script>
-
-  <script>
-    $('.average-review-rating').raty({
-      readOnly: true,
-      starOn: "<%= asset_path('star-on.png') %>",
-      starOff: "<%= asset_path('star-off.png') %>",
-      starHalf: "<%= asset_path('star-half.png') %>",
-      score: function() {
-        return $(this).attr('data-score')
-      half: true
-      }
-    });
-  </script>
+<script>
+  $('.average-review-rating').raty({
+    readOnly: true,
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+    score: function() {
+      return $(this).attr('data-score')
+    half: true
+    }
+  });
+</script>

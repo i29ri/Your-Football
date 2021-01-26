@@ -1,7 +1,9 @@
-<div>
+<div class="container user-show-top">
   <%= render 'users/show', user: @user %>
+</div>
+<div class="container user-show-follow">
   <%= render 'user_relationships/follow_button', user: @user %>
 </div>
-<div>
+<div class="container user-show-review">
   <%= render 'previews/index', peview: @previews %>
 </div>

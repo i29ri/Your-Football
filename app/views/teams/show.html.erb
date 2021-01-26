@@ -4,24 +4,53 @@
     <tr>
       <th>チーム名</th>
       <th>アイコン</th>
-      <th>試合一覧</th>
     </tr>
   </thead>
     <tbody>
+      <td><%= @team.name %></td>
       <td><%= @team.name %></td>
     </tr>
   </tbody>
 </table>
 
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th>シーズン</th>
+      <th>試合</th>
+      <th>開催日</th>
+      <th>試合会場</th>
+      <th>対戦カード</th>
+      <th>レビュー数</th>
+      <th>プレビュー数</th>
+    </tr>
+  </thead>
+
+  <tbody>
     <% @matches.each do |mr| %>
       <tr>
         <td><%= mr.match.season %>年</td>
         <td>第<%= mr.match.section %>節</td>
         <td><%= mr.match.match_day.strftime('%Y/%m/%d') %></td>
         <td><%= mr.match.stadium_name %></td>
-        <td><%= link_to match_path(mr.match) do %>
-          <%= mr.match.team_relationships.find_by(home_flg:true).team.name %><%= mr.match.home_goal %> vs
-          <%= mr.match.team_relationships.find_by(home_flg:false).team.name %><%= mr.match.away_goal %>
-        <% end %>
+        <td>
+          <div class="match-card">
+            <%= link_to team_path(mr.match.team_relationships.find_by(home_flg:true).team.id) do %>
+              <%= mr.match.team_relationships.find_by(home_flg:true).team.name %>
+            <% end %>
+            <%= link_to match_path(mr.match) do %>
+              <%= mr.match.home_goal %>-<%= mr.match.away_goal %>
+            <% end %>
+            <%= link_to team_path(mr.match.team_relationships.find_by(home_flg:false).team.id) do %>
+              <%= mr.match.team_relationships.find_by(home_flg:false).team.name %>
+            <% end %>
+          </div>
+        </td>
+        <td><%= mr.match.review.count %></td>
+        <td><%= mr.match.preview.count %></td>
       </tr>
     <% end %>
+  </tbody>
+</table>
+
+

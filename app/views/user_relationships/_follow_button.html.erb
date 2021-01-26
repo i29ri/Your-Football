@@ -1,21 +1,50 @@
-<% unless current_user == user %>
-  <% if current_user.following?(user) %>
-    <%= form_for(current_user.user_relationships.find_by(follow_id: user.id), html: { method: :delete }) do |f| %>
-      <%= hidden_field_tag :follow_id, user.id %>
-      <%= f.submit 'フォローを外す', class: 'btn btn-danger btn-block' %>
+<div class="row">
+  <div class="col-3">
+    <% unless current_user == user %>
+      <% if current_user.following?(user) %>
+        <%= form_for(current_user.user_relationships.find_by(follow_id: user.id), html: { method: :delete }) do |f| %>
+          <%= hidden_field_tag :follow_id, user.id %>
+          <%= f.submit 'フォロー中', class: 'btn btn-light btn-block' %>
+        <% end %>
+      <% else %>
+        <%= form_for(current_user.user_relationships.create) do |f| %>
+          <%= hidden_field_tag :follow_id, user.id %>
+          <%= f.submit 'フォロー', class: 'btn btn-light btn-block' %>
+        <% end %>
+      <% end %>
     <% end %>
-  <% else %>
-    <%= form_for(current_user.user_relationships.create) do |f| %>
-      <%= hidden_field_tag :follow_id, user.id %>
-      <%= f.submit 'フォローする', class: 'btn btn-primary btn-block' %>
-    <% end %>
-  <% end %>
-<% end %>
+  </div>
+</div>
+
+<div class="row follow-info">
+  <div class="col-3">
+    <div class="row">
+      <div class="col-7">
+        <%= link_to followers_path(user) do %>
+          <p>Followers  <%= user.followers.count %></p>
+        <% end %>
+      </div>
+      <div class="col-5">
+        <%= link_to followings_path(user) do %>
+          <p>Following  <%= user.followings.count %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
 
-<p>フォロワー数</p><%= user.followers.count %>
-<p>フォロー数</p><%= user.followings.count %>
-
-
-<%= link_to "フォロワー一覧", followers_path(user) %>
-<%= link_to "フォロー一覧", followings_path(user) %>
+  <div class="col-6 offset-md-3">
+    <div class="row">
+      <div class="col-3">
+        <p>レビュー数 <%= @user.review.count %></p>
+      </div>
+      <div class="col-3">
+        <p>プレビュー数 <%= @user.preview.count %></p>
+      </div>
+      <div class="col-3">
+        <p>平均評価点 <%#= @user.preview.count %></p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

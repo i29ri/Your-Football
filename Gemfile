@@ -67,7 +67,7 @@ gem "refile-mini_magick"
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'roo'
-
+gem 'seed-fu'
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
