@@ -1,3 +1,39 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-show-top {
+  margin: 80px 0;
+}
+.follow-info {
+  border-top: solid 1px #a9a9a9;
+  padding: 30px 0;
+}
+
+.user-show-review {
+  border-top: solid 1px #a9a9a9;
+  padding: 30px 0;
+}
+.card-deck {
+  margin: 20px 0;
+}
+.flex-wrap {
+}
+
+.review-box {
+  margin: 20px 20px 10px 0;
+
+}
+.match-card {
+  font-size: 8px;
+}
+.flex-wrap {
+  margin: 50px 0;
+}
+
+.form-field {
+  margin: 10px 0;
+}
+.unsubscribe-btn {
+  padding: 20px 0;
+}

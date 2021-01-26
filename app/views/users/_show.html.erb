@@ -1,12 +1,45 @@
-  <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "noimage.jpg"%>
-  <p><%= @user.nickname %></p>
-  <p><%= @user.yourfoot_ID %></p>
-  <p><%= @user.introduction %></p>
-  <% if @user.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-  <% end %>
-  <% if @user.pickteam.nil? %>
-     <p>推しチーム：未選択</p>
-   <% else %>
-    <p><%= @user.pickteam.team.name %></p>
-  <% end %>
+<div class="row">
+  <div class="col-7">
+    <div class="row">
+      <div class="col-3">
+        <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg", class: "bd-placeholder-img" %>
+      </div>
+      <div class="col-4">
+        <h4 class="card-title"><%= @user.nickname %></h4><h7>@<%= @user.yourfoot_ID %></h7>
+        <p class="card-text"><%= @user.introduction %></p>
+        <p class="card-text"><small class="text-muted">登録日:<%= @user.created_at.strftime('%Y/%m/%d') %></small></p>
+          <% if @user.id == current_user.id %>
+        <button type="button" class="btn btn-secondary btn-sm">
+            <%= link_to "プロフィール編集", edit_user_path(@user), class: "nav-link text-white" %>
+        </button>
+          <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-5">
+    <div class="row">
+      <div class="col-4">
+        <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg", class: "bd-placeholder-img" %>
+      </div>
+      <div class="col-7">
+        <h4>推しチーム</h4>
+        <% if @user.pickteam.nil? %>
+          <p>推しチーム：未選択</p>
+        <% else %>
+          <p><%= @user.pickteam.team.name %></p>
+        <% end %>
+        <% if @user.pickteam.nil? %>
+        <p></p>
+        <% else %>
+        <p>推し継続日数</br>{(<%= @user.pickteam.updated_at%>) -- (<%= Date.today %>)}</p>
+        <% end %>
+          <% if @user.id == current_user.id %>
+            <button type="button" class="btn btn-secondary btn-sm">
+            <%= link_to "推しチーム変更", edit_user_path(@user), class: "nav-link text-white" %>
+            </button>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

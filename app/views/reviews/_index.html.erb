@@ -1,14 +1,64 @@
-<%= link_to "プレビュー一覧へ", preview_path(@user) %>
-<% @reviews.each do |review| %>
-  <%= link_to match_review_path(review.match.id, review) do %>
-    <%= review.comment %>
-  <% end %>
-  <%= link_to user_path(review.user.yourfoot_ID) do %>
-    <%= review.user.nickname %>
-  <% end %>
-  <div class="review-rating" data-score="<%= review.rating %>"></div>
+<div class="row">
+  <div class="col-5 offset-md-4">
+    <h4>レビュー一覧</h4>
+  </div>
+  <div class="col-3">
+    <button type="button" class="btn btn-warning btn-sm">
+        <%= link_to "プレビュー一覧はこちら", preview_path(@user), class: "nav-link text-white" %>
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="d-flex flex-wrap">
+    <% @reviews.each do |review| %>
+        <div class="col-3">
+          <div class="club-image">
+            <%= link_to match_path(review.match.id) do %>
+              <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg", class: "bd-placeholder-img" %>
+              <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg", class: "bd-placeholder-img" %>
+            <% end %>
+          </div>
+          <div class="match-card">
+            <%= link_to team_path(review.match.team_relationships.find_by(home_flg:true).id) do %>
+              <%= review.match.team_relationships.find_by(home_flg:true).team.name %>
+            <% end %>
+            <%= link_to match_path(review.match) do %>
+              <%= review.match.home_goal %>-<%= review.match.away_goal %>
+            <% end %>
+              <%= link_to team_path(review.match.team_relationships.find_by(home_flg:false).team.id) do %>
+                <%= review.match.team_relationships.find_by(home_flg:false).team.name %>
+              <% end %>
+          </div>
 
-<% end %>
+          <p><%= review.match.match_day.strftime('%Y/%m/%d') %></p>
+
+        </div>
+        <div class="col-3 offset-mb-1">
+          <div class="review-rating" data-score="<%= review.rating %>"></div>
+          <%= link_to user_path(review.user.yourfoot_ID) do %>
+            <%= review.user.nickname %>
+          <% end %>
+          <p>
+            <%= link_to match_review_path(review.match.id, review) do %>
+              <%= review.comment.truncate(50) %>
+            <% end %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

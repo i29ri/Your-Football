@@ -3,19 +3,22 @@
     <tr>
       <th>チーム名</th>
       <th>アイコン</th>
+      <th>推し登録者数</th>
     </tr>
   </thead>
 
   <tbody>
     <% @teams.each do |team| %>
       <tr>
-        <td><%= link_to team_path(team) do %>
+        <td>
+          <%= link_to team_path(team) do %>
           <%= team.name %>
-        <% end %></td>
-        <td><image_tag <%= team.image_id %>></td>
+          <% end %>
+        </td>
+        <td><%= image_tag "kawasaki-image.png",:size =>'100x100' %></td>
+        <td><%= team.pickteams.count %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= image_tag "kawasaki-image.png"%>
 

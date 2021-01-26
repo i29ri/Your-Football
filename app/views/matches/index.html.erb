@@ -5,8 +5,9 @@
       <th>試合</th>
       <th>開催日</th>
       <th>試合会場</th>
-      <th>ホームチーム</th>
-      <th>アウェイチーム</th>
+      <th>対戦カード</th>
+      <th>レビュー数</th>
+      <th>プレビュー数</th>
     </tr>
   </thead>
 
@@ -17,10 +18,21 @@
         <td>第<%= match.section %>節</td>
         <td><%= match.match_day.strftime('%Y/%m/%d') %></td>
         <td><%= match.stadium_name %></td>
-        <td><%= link_to match_path(match) do %>
-          <%= match.team_relationships.find_by(home_flg:true).team.name %><%= match.home_goal %> vs
-          <%= match.team_relationships.find_by(home_flg:false).team.name %><%= match.away_goal %>
-        <% end %>
+        <td>
+          <div class="match-card">
+            <%= link_to team_path(match.team_relationships.find_by(home_flg:true).id) do %>
+              <%= match.team_relationships.find_by(home_flg:true).team.name %>
+            <% end %>
+            <%= link_to match_path(match) do %>
+              <%= match.home_goal %>-<%= match.away_goal %>
+            <% end %>
+              <%= link_to team_path(match.team_relationships.find_by(home_flg:false).team.id) do %>
+                <%= match.team_relationships.find_by(home_flg:false).team.name %>
+              <% end %>
+          </div>
+        </td>
+        <td><%= match.review.count %></td>
+        <td><%= match.preview.count %></td>
       </tr>
     <% end %>
   </tbody>
