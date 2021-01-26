@@ -1,10 +1,16 @@
-<%# かんたんログインボタン %>
-<%= form_for(User.new, url:user_session_path) do |f| %>
-  <div class="field">
-    <%= f.hidden_field :email, value: "test1@test.co.jp" %>
-    <%= f.hidden_field :password, value: "testuser" %>
-  </div>
-  <div class="actions">
-    <%= f.submit "かんたんログイン", class: "btn orange-btn sign-btn" %>
-  </div>
-<% end %>
+<div class="col-2 offset-md-5 kantan">
+  <%# かんたんログインボタン %>
+  <%= form_for(User.new, url:user_session_path) do |f| %>
+    <div class="field">
+      <%= f.hidden_field :email, value: "test1@test.co.jp" %>
+      <%= f.hidden_field :password, value: "testuser" %>
+      <button type="submit" class="btn btn-warning btn-sm">かんたんログイン</button>
+    </div>
+  <% end %>
+</div>
+
+<div class="col-8 offset-md-2 explain">
+  <p>※ かんたんログインはポートフォリオ閲覧用です。<br/>
+  メールアドレス等を入力せず閲覧いただけます。<br/></p>
+  <h7>ログインなしでも閲覧できますが、レビュー・プレビューを記録することはできません。</h7>
+</div>
