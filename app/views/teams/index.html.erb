@@ -1,24 +1,30 @@
-<table class='table table-hover table-inverse'>
-  <thead>
-    <tr>
-      <th>チーム名</th>
-      <th>アイコン</th>
-      <th>推し登録者数</th>
-    </tr>
-  </thead>
+<div class="container user-index">
+  <div class="row">
+    <div class="col-9 mx-auto">
+      <table class='table table-hover table-inverse'>
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th>推し登録者数</th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @teams.each do |team| %>
-      <tr>
-        <td>
-          <%= link_to team_path(team) do %>
-          <%= team.name %>
+        <tbody>
+          <% @teams.each do |team| %>
+            <tr>
+              <td>
+                <%= link_to team_path(team) do %>
+                <%= team.name %>
+                <% end %>
+              </td>
+              <td><%= image_tag "kawasaki-image.png",:size =>'100x100' %></td>
+              <td><%= team.pickteams.count %></td>
+            </tr>
           <% end %>
-        </td>
-        <td><%= image_tag "kawasaki-image.png",:size =>'100x100' %></td>
-        <td><%= team.pickteams.count %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
