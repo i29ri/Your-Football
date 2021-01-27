@@ -11,39 +11,44 @@
 <div class="row">
   <div class="d-flex flex-wrap">
     <% @previews.each do |preview| %>
-        <div class="col-3">
-          <div class="club-image">
-            <%= link_to match_path(preview.match.id) do %>
-              <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg", class: "bd-placeholder-img" %>
-              <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg", class: "bd-placeholder-img" %>
-            <% end %>
-          </div>
-          <div class="match-card">
-            <%= link_to team_path(preview.match.team_relationships.find_by(home_flg:true).id) do %>
-              <%= preview.match.team_relationships.find_by(home_flg:true).team.name %>
-            <% end %>
-            <%= link_to match_path(preview.match) do %>
-              <%= preview.match.home_goal %>-<%= preview.match.away_goal %>
-            <% end %>
-              <%= link_to team_path(preview.match.team_relationships.find_by(home_flg:false).team.id) do %>
-                <%= preview.match.team_relationships.find_by(home_flg:false).team.name %>
+    <div class="col-6">
+        <div class="row">
+          <div class="col-6">
+            <div class="club-image">
+              <%= link_to match_path(preview.match.id) do %>
+                <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg", class: "bd-placeholder-img" %>
+                <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg", class: "bd-placeholder-img" %>
               <% end %>
+            </div>
+            <div class="match-card">
+              <%= link_to team_path(preview.match.team_relationships.find_by(home_flg:true).id) do %>
+                <%= preview.match.team_relationships.find_by(home_flg:true).team.name %>
+              <% end %>
+              <%= link_to match_path(preview.match) do %>
+                <%= preview.match.home_goal %>-<%= preview.match.away_goal %>
+              <% end %>
+                <%= link_to team_path(preview.match.team_relationships.find_by(home_flg:false).team.id) do %>
+                  <%= preview.match.team_relationships.find_by(home_flg:false).team.name %>
+                <% end %>
+            </div>
+            <p><%= preview.match.match_day.strftime('%Y/%m/%d') %></p>
           </div>
-
-          <p><%= preview.match.match_day.strftime('%Y/%m/%d') %></p>
-
+          <div class="col-6">
+            <div>
+              <%= link_to user_path(preview.user.yourfoot_ID) do %>
+                <%= preview.user.nickname %>
+              <% end %>
+              <p>
+                <%= link_to match_preview_path(preview.match.id, preview) do %>
+                  <%= preview.comment.truncate(50) %>
+                <% end %>
+              </p>
+             </div>
+          </div>
         </div>
-        <div class="col-3 offset-mb-1">
-          <%= link_to user_path(preview.user.yourfoot_ID) do %>
-            <%= preview.user.nickname %>
-          <% end %>
-          <p>
-            <%= link_to match_preview_path(preview.match.id, preview) do %>
-              <%= preview.comment.truncate(50) %>
-            <% end %>
-          </p>
-        </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
+
+
