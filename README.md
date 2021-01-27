@@ -1,15 +1,14 @@
-testtest
 # Your-Football
 
 ## サイト概要
 サッカー・Jリーグレビューサイト
 
 ### サイトテーマ
-Jリーグの観戦録、見たい試合の備忘録、試合の感想や情報をシェアして楽しむコミュニケーションツール
+Jリーグの観戦録、見たい試合の備忘録、試合の感想や情報をシェアして楽しむことができるコミュニケーションツールです。
 
 ### テーマを選んだ理由
 昨今、サッカー日本代表の人気が上がってきている一方、Jリーグの人気は伸び悩んでいます。<br>
-そこで、私が愛するJリーグをより身近に感じてもらいたいと思い、レビューサイトを制作することにしました。<br>
+そこで、私が心の底から愛するJリーグをより身近に感じてもらいたいと思い、レビューサイトを制作することにしました。<br>
 他者のレビューから試合の中での見るべきポイントが分かってきたり、自分が いいね！ と思った選手を共有することができます。<br>
 サポーター同士でコミュニケーションをとることにより、よりJリーグを好きになってもらいたいです。
 
@@ -29,7 +28,6 @@ Jリーグの観戦録、見たい試合の備忘録、試合の感想や情報�
 - プレビュー作成・一覧表示
 - いいね機能
 - コメント機能
-- ユーザー名やチーム名での検索
 
 ##管理者側
 - CSVでのデータ登録
@@ -44,14 +42,16 @@ Jリーグの観戦録、見たい試合の備忘録、試合の感想や情報�
 
 
 ## チャレンジ要素一覧
-[Google Sheets](https://docs.google.com/spreadsheets/d/10JjKGOYF_XZ784bWXK7ttFr1zSEk4XW-EPKn-YBaM7A/edit#gid=0)
+[こちら](https://docs.google.com/spreadsheets/d/10JjKGOYF_XZ784bWXK7ttFr1zSEk4XW-EPKn-YBaM7A/edit#gid=0)になります。(Google Spreadsheet)
 
 ## 開発環境
 - OS：Linux(WindowsOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery
-- IDE：Cloud9
+- JSライブラリ：jQuery, raty.js, slick
+- IDE：AWS Cloud9
 
 ## 使用素材
-現時点では使用予定なし。
+- [stock.foto](https://www.foto.ne.jp/)（背景写真に使用）
+- [designevo](https://www.designevo.com/apps/logo/)（ロゴ作成に使用）
+- [peko-step](https://www.peko-step.com/)（画像編集に使用）
