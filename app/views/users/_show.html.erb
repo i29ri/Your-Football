@@ -2,7 +2,7 @@
   <div class="col-7">
     <div class="row">
       <div class="col-3">
-        <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg", class: "bd-placeholder-img" %>
+        <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg", class: "border rounded-circle" %>
       </div>
       <div class="col-4">
         <h4 class="card-title"><%= @user.nickname %></h4><h7>@<%= @user.yourfoot_ID %></h7>

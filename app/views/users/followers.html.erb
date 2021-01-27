@@ -17,7 +17,7 @@
             <%= user.nickname %>
           <% end %>
         </td>
-        <td><%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg" %></td>
+        <td><%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg", class: "border rounded-circle" %></td>
         <td><%= render 'user_relationships/follow_button', user: @user %></td>
       </tr>
     <% end %>
