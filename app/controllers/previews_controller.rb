@@ -23,7 +23,6 @@ class PreviewsController < ApplicationController
   def edit
     @preview = Preview.find(params[:id])
     @match = Match.find(params[:match_id])
-
   end
 
   def update

@@ -1,12 +1,11 @@
 class Review < ApplicationRecord
-
   # ==============バリデーション ================================
 
   validates :comment, length: { in: 0..500 }
   # rating 1 ~ 10まで1
   validates :rating, numericality: {
     less_than_or_equal_to: 10,
-    greater_than_or_equal_to: 1
+    greater_than_or_equal_to: 1,
   }, presence: true
 
   # 1人が１つの試合に対して、１つしかレビューをつけられないようにする

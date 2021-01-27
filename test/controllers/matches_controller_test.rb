@@ -10,5 +10,4 @@ class MatchesControllerTest < ActionDispatch::IntegrationTest
     get matches_show_url
     assert_response :success
   end
-
 end

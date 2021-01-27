@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :withdraw]
-  before_action :check_guest, only: [:update ,:withdraw]
+  before_action :check_guest, only: [:update, :withdraw]
 
   def index
     @users = User.all
@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by!(yourfoot_ID: params[:yourfoot_ID])
     @reviews = @user.review
-
   end
 
   def preview
@@ -50,7 +49,6 @@ class UsersController < ApplicationController
     @users = @user.followings
   end
 
-
   def unsubscribe
     @user = User.find_by!(yourfoot_ID: params[:yourfoot_ID])
   end
@@ -67,6 +65,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:nickname, :introduction, :profile_image)
   end
+
   def pickteam_params
     params.require(:user).permit(:team_id)
   end
@@ -77,11 +76,11 @@ class UsersController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
+
   def check_guest
     if current_user.email == 'test1@test.co.jp'
       flash[:danger] = "テストユーザーのため編集できません"
       redirect_to user_path(current_user)
     end
   end
-
 end

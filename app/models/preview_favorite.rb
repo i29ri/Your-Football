@@ -7,5 +7,4 @@ class PreviewFavorite < ApplicationRecord
   # ==============バリデーション ================================
   # 1人が１つのプレビューに対して、１つしかいいねをつけられないようにする
   validates_uniqueness_of :preview, scope: :user_id
-
 end

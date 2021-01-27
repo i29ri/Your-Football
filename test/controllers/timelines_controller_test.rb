@@ -5,5 +5,4 @@ class TimelinesControllerTest < ActionDispatch::IntegrationTest
     get timelines_index_url
     assert_response :success
   end
-
 end
