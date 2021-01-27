@@ -10,5 +10,4 @@ class TeamsControllerTest < ActionDispatch::IntegrationTest
     get teams_show_url
     assert_response :success
   end
-
 end

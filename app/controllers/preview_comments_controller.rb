@@ -1,4 +1,4 @@
-class PpreviewCommentsController < ApplicationController
+class PreviewCommentsController < ApplicationController
   def create
     @match = Match.find(params[:match_id])
     @preview = Preview.find(params[:preview_id])

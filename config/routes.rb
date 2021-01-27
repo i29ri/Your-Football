@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get 'timelines/index'
   devise_for :users
   root to: 'homes#top'
@@ -31,5 +30,4 @@ Rails.application.routes.draw do
   resources :teams, only: [:index, :show] do
     resource :team_relationships, only: [:create, :destroy]
   end
-
 end

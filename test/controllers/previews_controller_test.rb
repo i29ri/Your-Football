@@ -15,5 +15,4 @@ class PreviewsControllerTest < ActionDispatch::IntegrationTest
     get previews_new_url
     assert_response :success
   end
-
 end

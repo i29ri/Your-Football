@@ -1,5 +1,4 @@
 class UserRelationshipsController < ApplicationController
-
   before_action :set_user
 
   def create
@@ -25,8 +24,8 @@ class UserRelationshipsController < ApplicationController
   end
 
   private
+
   def set_user
     @user = User.find(params[:follow_id])
   end
-
 end

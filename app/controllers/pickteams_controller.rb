@@ -1,5 +1,4 @@
 class PickteamsController < ApplicationController
-
   def create
   end
 
@@ -8,5 +7,4 @@ class PickteamsController < ApplicationController
 
   def destroy
   end
-
 end

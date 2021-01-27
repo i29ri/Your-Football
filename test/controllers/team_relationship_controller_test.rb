@@ -10,5 +10,4 @@ class TeamRelationshipControllerTest < ActionDispatch::IntegrationTest
     get team_relationship_destroy_url
     assert_response :success
   end
-
 end

@@ -76,3 +76,4 @@ gem 'pry-byebug'
 group :development, :test do
   gem 'awesome_print'
 end
+gem 'rubocop-airbnb'
