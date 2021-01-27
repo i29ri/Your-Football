@@ -1,20 +1,145 @@
-<% @timelines.each do |timeline| %>
-  <% if timeline.class == Review %>
-    <%# Reviewの表示 %>
-    <p>レビュー</p>
-    <%= timeline.user.nickname %>
-    <%= timeline.comment %>
-    <%= timeline.id %>
-    <td><%= attachment_image_tag timeline.user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg"%></td>
+<div class="row">
+  <div class="col-7">
+    <% @timelines.each do |timeline| %>
+      <%# Reviewの表示 %>
+      <% if timeline.class == Review %>
+        <div class="review-box bg-light">
+          <div class="row row-up"><!--レビューBOX上段部分-->
+            <div class="col-6"><!--レビューBOX上段左部分-->
 
-  <% else %>
-    <%# Previewの表示 %>
-    <p>プレビュー</p>
-    <%= timeline.id %>
-    <%= timeline.user.nickname %>
-    <td><%= attachment_image_tag timeline.user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg"%></td>
-    <%= timeline.comment %>
-    <%= timeline.created_at.strftime('%Y/%m/%d %H:%M') %>
+              <div class="row">
+                <div class="col-5"><!--レビューBOX上段左/左部分-->
+                  <%= attachment_image_tag timeline.user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg", class: "border rounded-circle"%>
+                </div>
+                <div class="col-6-offset-md-1  mx-auto"><!--レビューBOX上段左/右部分-->
+                  <p><%= timeline.user.nickname %></p>
+                  <p>@<%= timeline.user.yourfoot_ID %></p>
+                </div>
+              </div>
 
-  <% end %>
-<% end %>
+            </div>
+            <div class="col-5-offset-md-1 mx-auto"><!--レビューBOX上段右部分-->
+              <div class="review-rating" data-score="<%= timeline.rating %>"><p class="text-warning"><%= timeline.rating %></p></div>
+            </div>
+          </div>
+
+          <div class="row row-down"><!--レビューBOX下段部分-->
+            <div class="col-6"><!--レビューBOX下段左部分-->
+              <p>明治安田生命Ｊ１リーグ　第<%= timeline.match.section %>節</p>
+              <div class="club-image">
+                <%= link_to match_path(timeline.match.id) do %>
+                  <%= attachment_image_tag timeline.user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg", class: "bd-placeholder-img" %>
+                  <%= attachment_image_tag timeline.user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg", class: "bd-placeholder-img" %>
+                <% end %>
+              </div>
+              <div class="match-card"> <!--対戦カード、試合結果の表示-->
+                <%= link_to team_path(timeline.match.team_relationships.find_by(home_flg:true).id) do %>
+                  <%= timeline.match.team_relationships.find_by(home_flg:true).team.name %>
+                <% end %>
+                <%= link_to match_path(timeline.match) do %>
+                  <%= timeline.match.home_goal %>-<%= timeline.match.away_goal %>
+                <% end %>
+                  <%= link_to team_path(timeline.match.team_relationships.find_by(home_flg:false).team.id) do %>
+                    <%= timeline.match.team_relationships.find_by(home_flg:false).team.name %>
+                  <% end %>
+              </div>
+            </div>
+
+            <div class="col-5-offset-md-1  mx-auto"><!--レビューBOX下段右部分-->
+              <div class="text-break"><%= timeline.comment.truncate(50) %></div>
+              <p　>コメント件数：<%= timeline.review_comments.count %></p>
+              <div id="review_fav_buttons_<%= timeline.id %>">
+                <%#= render partial: 'review_favorites/review_fav_index', locals: { timeline: @review} %>
+              </div>
+              <div class="d-flex align-items-start">
+                <%= timeline.created_at.strftime('%Y/%m/%d %H:%M') %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <%# Previewの表示 %>
+        <p>プレビュー</p>
+        <div class="review-box bg-light">
+          <div class="row row-up"><!--レビューBOX上段部分-->
+            <div class="col-6"><!--レビューBOX上段左部分-->
+
+              <div class="row">
+                <div class="col-5"><!--レビューBOX上段左/左部分-->
+                  <%= attachment_image_tag timeline.user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg", class: "border rounded-circle"%>
+                </div>
+                <div class="col-6-offset-md-1  mx-auto"><!--レビューBOX上段左/右部分-->
+                  <p><%= timeline.user.nickname %></p>
+                  <p>@<%= timeline.user.yourfoot_ID %></p>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-5-offset-md-1 mx-auto"><!--レビューBOX上段右部分-->
+            </div>
+          </div>
+
+          <div class="row row-down"><!--レビューBOX下段部分-->
+            <div class="col-6"><!--レビューBOX下段左部分-->
+              <p>明治安田生命Ｊ１リーグ　第<%= timeline.match.section %>節</p>
+              <div class="club-image">
+                <%= link_to match_path(timeline.match.id) do %>
+                  <%= attachment_image_tag timeline.user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg", class: "bd-placeholder-img" %>
+                  <%= attachment_image_tag timeline.user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg", class: "bd-placeholder-img" %>
+                <% end %>
+              </div>
+              <div class="match-card"> <!--対戦カード、試合結果の表示-->
+                <%= link_to team_path(timeline.match.team_relationships.find_by(home_flg:true).id) do %>
+                  <%= timeline.match.team_relationships.find_by(home_flg:true).team.name %>
+                <% end %>
+                <%= link_to match_path(timeline.match) do %>
+                  <%= timeline.match.home_goal %>-<%= timeline.match.away_goal %>
+                <% end %>
+                  <%= link_to team_path(timeline.match.team_relationships.find_by(home_flg:false).team.id) do %>
+                    <%= timeline.match.team_relationships.find_by(home_flg:false).team.name %>
+                  <% end %>
+              </div>
+            </div>
+
+            <div class="col-5-offset-md-1  mx-auto"><!--レビューBOX下段右部分-->
+              <div class="text-break"><%= timeline.comment.truncate(50) %></div>
+              <p　>コメント件数：<%= timeline.preview_comments.count %></p>
+              <div id="preview_fav_buttons_<%= timeline.id %>">
+                <%#= render partial: 'preview_favorites/preview_fav_index', locals: { timeline: @preview} %>
+              </div>
+              <div class="d-flex align-items-start">
+                <%= timeline.created_at.strftime('%Y/%m/%d %H:%M') %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+  <script>
+    $('.review-rating').raty({
+      readOnly: true,
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      score: function() {
+        return $(this).attr('data-score');
+      half: true
+      }
+    });
+  </script>
+
+  <script>
+    $('.average-review-rating').raty({
+      readOnly: true,
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      score: function() {
+        return $(this).attr('data-score')
+      half: true
+      }
+    });
+  </script>

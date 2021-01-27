@@ -57,7 +57,7 @@
     <div class="review-rating" data-score="<%= review.rating %>"></div>
   <% end %>
 <% else %>
-  <% @previews.each do |preview| %>
+  <% @match.preview.each do |preview| %>
     <%= link_to match_preview_path(preview) do %>
       <%= preview.comment %>
       <%= preview.user.nickname %>
