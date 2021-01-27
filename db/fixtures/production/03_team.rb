@@ -1,4 +1,4 @@
-csv = CSV.read('db/fixtures/development/teams_index.csv')
+csv = CSV.read('db/fixtures/production/teams_index.csv')
 csv.each do |team|
   Team.seed do |s|
   s.id = team[0]
