@@ -42,7 +42,7 @@ Jリーグの観戦録、見たい試合の備忘録、試合の感想や情報�
 
 
 ## チャレンジ要素一覧
-[こちら](https://docs.google.com/spreadsheets/d/10JjKGOYF_XZ784bWXK7ttFr1zSEk4XW-EPKn-YBaM7A/edit#gid=0)になります。(Google Spreadsheet)
+- [こちら](https://docs.google.com/spreadsheets/d/10JjKGOYF_XZ784bWXK7ttFr1zSEk4XW-EPKn-YBaM7A/edit#gid=0)になります。(Google Spreadsheet)
 
 ## 開発環境
 - OS：Linux(WindowsOS)
