@@ -77,3 +77,5 @@ group :development, :test do
   gem 'awesome_print'
 end
 gem 'rubocop-airbnb'
+gem 'cancancan'
+gem 'rails_admin'
