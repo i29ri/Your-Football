@@ -79,3 +79,5 @@ end
 gem 'rubocop-airbnb'
 gem 'cancancan'
 gem 'rails_admin'
+gem 'carrierwave'
+gem 'cloudinary'
