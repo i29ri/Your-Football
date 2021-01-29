@@ -1,4 +1,4 @@
-# Your-Football
+# Your Football
 
 ## サイト概要
 サッカー・Jリーグレビューサイト
