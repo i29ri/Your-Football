@@ -54,4 +54,4 @@ Jリーグの観戦録、見たい試合の備忘録、試合の感想や情報�
 ## 使用素材
 - [stock.foto](https://www.foto.ne.jp/)（背景写真に使用）
 - [designevo](https://www.designevo.com/apps/logo/)（ロゴ作成に使用）
-- [peko-step](https://www.peko-step.com/)（画像編集に使用）
+- [fotor](https://www.fotor.com/)（画像編集に使用）
