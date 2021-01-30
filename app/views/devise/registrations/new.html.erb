@@ -16,11 +16,6 @@
   </div>
 
   <div class="field">
-    <%= f.label "推しチーム" %><br />
-    <%= f.collection_select :id, Team.all, :id, :name,:prompt => "チームを選択" %>
-  </div>
-
-  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
