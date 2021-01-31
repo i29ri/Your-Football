@@ -5,7 +5,7 @@ class Review < ApplicationRecord
   # rating 1 ~ 10まで1
   validates :rating, numericality: {
     less_than_or_equal_to: 10,
-    greater_than_or_equal_to: 1,
+    greater_than_or_equal_to: 0,
   }, presence: true
 
   # 1人が１つの試合に対して、１つしかレビューをつけられないようにする
