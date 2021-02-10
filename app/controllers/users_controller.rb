@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :withdraw]
-  #before_action :check_guest, only: [:update, :withdraw]
+  #before_action :check_guest, only: [:update, :withdraw] aa
 
   def index
     @users = User.all
