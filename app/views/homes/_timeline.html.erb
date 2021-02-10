@@ -28,8 +28,8 @@
               <p>明治安田生命Ｊ１リーグ　第<%= timeline.match.section %>節</p>
               <div class="club-image">
                 <%= link_to match_path(timeline.match.id) do %>
-                  <%= image_tag timeline.match.team_relationships.find_by(home_flg:true).team.image_id.url, :size => '100x100' %>
-                  <%= image_tag timeline.match.team_relationships.find_by(home_flg:false).team.image_id.url, :size => '100x100' %>
+                  <%#= image_tag timeline.match.team_relationships.find_by(home_flg:true).team.image_id.url, :size => '100x100' %>
+                  <%#= image_tag timeline.match.team_relationships.find_by(home_flg:false).team.image_id.url, :size => '100x100' %>
                 <% end %>
               </div>
               <div class="match-card"> <!--対戦カード、試合結果の表示-->

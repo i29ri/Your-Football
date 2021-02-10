@@ -23,7 +23,7 @@
         <% if @user.pickteam.nil? %>
           <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "noimage.jpg", class: "border rounded-circle" %>
         <% else %>
-          <%= image_tag @user.pickteam.team.image_id.url, :size => '150x150' %>
+          <%#= image_tag @user.pickteam.team.image_id.url, :size => '150x150' %>
         <% end %>
       </div>
       <div class="col-7">

@@ -16,8 +16,8 @@
           <div class="col-6">
             <div class="club-image">
               <%= link_to match_path(review.match.id) do %>
-                <%= image_tag review.match.team_relationships.find_by(home_flg:true).team.image_id.url, :size => '100x100' %>
-                <%= image_tag review.match.team_relationships.find_by(home_flg:false).team.image_id.url, :size => '100x100' %>
+                <%#= image_tag review.match.team_relationships.find_by(home_flg:true).team.image_id.url, :size => '100x100' %>
+                <%#= image_tag review.match.team_relationships.find_by(home_flg:false).team.image_id.url, :size => '100x100' %>
               <% end %>
             </div>
             <div class="match-card">
