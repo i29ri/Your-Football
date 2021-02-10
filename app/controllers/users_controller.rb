@@ -14,9 +14,12 @@ class UsersController < ApplicationController
     else
       @average_review = @reviews.average(:rating).round(2)
     end
-    #推しチームの継続日数を計算　〇日目と表記したいので （当日の日付- 変更日）に１日分追加する
-    @duration = (Date.today + 1 - Date.parse(@user.pickteam.updated_at.to_s)).to_i
 
+    if @user.pickteam.nil?
+    else
+    #推しチームの継続日数を計算　〇日目と表記したいので （当日の日付- 変更日）に１日分追加する
+      @duration = (Date.today + 1 - Date.parse(@user.pickteam.updated_at.to_s)).to_i
+    end
   end
 
   def preview

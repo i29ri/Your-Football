@@ -34,9 +34,9 @@
           <p><%= @user.pickteam.team.name %></p>
         <% end %>
         <% if @user.pickteam.nil? %>
-        <p></p>
+          <p></p>
         <% else %>
-        <p>推し継続日数</br><%= @duration %>日目</p>
+          <p>推し継続日数</br><%= @duration %>日目</p>
         <% end %>
           <% if @user.id == current_user.id %>
             <button type="button" class="btn btn-secondary btn-sm">
