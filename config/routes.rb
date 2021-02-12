@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :previews, except: [:index] do
       resources :preview_comments, only: [:create, :destroy]
     end
-    resources :reviews, except: [:index] do
+    resources :reviews do
       resources :review_comments, only: [:create, :destroy]
     end
   end
