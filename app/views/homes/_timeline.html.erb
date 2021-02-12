@@ -1,5 +1,8 @@
 <div class="row">
   <div class="col-7">
+    <div class="right">
+      <%= link_to "全ユーザーの投稿一覧はこちら" , timelines_index_path %>
+    </div>
     <% @timelines.each do |timeline| %>
       <%# Reviewの表示 %>
       <% if timeline.class == Review %>

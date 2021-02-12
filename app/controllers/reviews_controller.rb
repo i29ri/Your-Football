@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: [:show]
 
+
   def new
     @review = Review.new
   end
