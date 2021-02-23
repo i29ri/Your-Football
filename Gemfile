@@ -88,3 +88,4 @@ group :development, :test do
   gem 'chromedriver-helper'
   gem 'faker'
 end
+gem 'rails-i18n'
