@@ -11,7 +11,8 @@ class User < ApplicationRecord
   # ==============バリデーション ================================
   # ニックネームは２～１４字まで　一意を要求
   validates :nickname, presence: true, uniqueness: true, length: { in: 2..14 }
-  # validates :team_id, presence: true, uniqueness: true, length: { in: 2..14 }
+  # 紹介文は１００字以下
+  validates :introduction, length: { in: 0..100 }
 
   # yourfootIDは半角英数字のみの４～２０字　一意を要求
   VALID_YOURFOOTID_REGEX = /\A[a-z0-9]+\z/.freeze

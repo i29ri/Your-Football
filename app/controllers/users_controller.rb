@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true)    
+    @users = @q.result(distinct: true)
   end
 
   def show
@@ -48,8 +48,11 @@ class UsersController < ApplicationController
       @pickteam.save
     end
     @user = User.find_by!(yourfoot_ID: params[:yourfoot_ID])
-    @user.update(user_params)
-    redirect_to user_path(current_user)
+    if @user.update(user_params)
+      redirect_to user_path(current_user)
+    else
+      render 'edit'
+    end
   end
 
   def followers

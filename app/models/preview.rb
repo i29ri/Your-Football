@@ -1,6 +1,7 @@
 class Preview < ApplicationRecord
   # ==============バリデーション ================================
-  validates :comment, length: { in: 0..500 }
+  #コメントはなくても可、３００文字以下
+  validates :comment, length: { in: 0..300 }
   # ==============アソシエーション ================================
   # user,matchとの１対Nの関係
   belongs_to :user
