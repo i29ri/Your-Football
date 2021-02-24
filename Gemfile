@@ -85,7 +85,6 @@ gem 'ransack'
 group :development, :test do
   gem 'rspec-rails'
   gem "factory_bot_rails"
-  gem 'chromedriver-helper'
   gem 'faker'
 end
 gem 'rails-i18n'

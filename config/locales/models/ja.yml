@@ -12,3 +12,8 @@ ja:
         nickname: ニックネーム
         password: パスワード
         introduction: 紹介文
+        
+  #すべてのモデルで共通している単語の設定
+  attributes:
+    created_at: 作成日
+    updated_at: 更新日        
