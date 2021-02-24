@@ -2,10 +2,10 @@ class Review < ApplicationRecord
   # ==============バリデーション ================================
   #コメントはなくても可、３００文字以下
   validates :comment, length: { in: 0..300 }
-  # rating 0 ~ 5
-  validates :rating, numericality: {
-    less_than_or_equal_to: 5,
-  }, presence: true
+  # rating 0 ~ 5の整数のみ。空白不可。
+  validates :rating, presence: true, numericality: {
+    only_integer: true, less_than_or_equal_to: 5
+  }
 
   # 1人が１つの試合に対して、１つしかレビューをつけられないようにする
   validates_uniqueness_of :match, scope: :user_id

@@ -11,8 +11,11 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.match_id = @match.id
     @review.user_id = current_user.id
-    @review.save
-    redirect_to match_path(@match)
+    if @review.save
+      redirect_to match_path(@match)
+    else
+      render :new
+    end
   end
 
   def show

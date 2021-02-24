@@ -1,7 +1,8 @@
 <h1>プレビュー投稿</h1>
 <div class="new-comment">
   <%= form_with(model:[@match, @preview], url: match_previews_path, local: true) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
     <%= f.text_area :comment, size: "70x10",placeholder: "300文字以内でご入力ください" %>
-    <%= f.submit "送信する" %>
+    <%= f.submit "プレビュー投稿" %>
   <% end %>
 </div>
