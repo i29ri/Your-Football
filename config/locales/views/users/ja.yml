@@ -1,13 +1,12 @@
-# ビューはビューを格納しているフォルダ名を起点にし、ビュー名毎に記述する。
-# インデント(2space)でpathを制御している
-
 ja:
-  users:
-    index:
-      title: 'ユーザ一覧'
-    show:
-      # 引数の指定もできる。
-      title: '%{user_name}さんのユーザ情報'
-    edit:
-      # view側で t(.titile), user_name: @user.name みたいな感じで設定できる
-      title: '%{user_name}さんのユーザ情報を編集'
+  activerecord:
+    models: #ここから下のコードを追加
+      user: "レビュー"
+    attributes:
+      user:
+        nickname: "ニックネーム"
+        introduction: "紹介文"
+        yourfoot_ID: "Your Football ID"
+        introduction: "紹介文"
+        email: "メールアドレス"
+        password: "パスワード"

@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      preview: "プレビュー"
+    attributes:
+      preview:
+        comment: "コメント"

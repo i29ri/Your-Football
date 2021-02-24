@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        review:
+          attributes:
+            rating:
+              blank: "投稿に失敗しました。Ratingを選択してください。"
+    models:
+      review: "レビュー"
+    attributes:
+      review:
+        comment: "コメント"
+        rating: "評価"

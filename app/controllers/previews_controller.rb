@@ -10,8 +10,11 @@ class PreviewsController < ApplicationController
     @preview = Preview.new(preview_params)
     @preview.match_id = @match.id
     @preview.user_id = current_user.id
-    @preview.save
-    redirect_to match_path(@match)
+    if @preview.save
+      redirect_to match_path(@match)
+    else
+      render :new
+    end
   end
 
   def show

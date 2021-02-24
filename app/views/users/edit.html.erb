@@ -7,6 +7,7 @@
 <p><%= @user.yourfoot_ID %></p>
 
 <%= form_with model:@user, local: true do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
   <div class="form-field">ニックネーム  　<%= f.text_field :nickname, autofocus: true %></div>
   <div class="form-field">アイコン画像  　<%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %></div>
   <div class="form-field">
