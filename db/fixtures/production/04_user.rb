@@ -1,6 +1,6 @@
 csv = CSV.read('db/fixtures/production/users_index.csv')
 csv.each do |user|
-  user.seed do |s|
+  User.seed do |s|
   s.id = user[0]
   s.email = user[1]
   s.encrypted_password = user[2]
