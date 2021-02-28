@@ -19,7 +19,7 @@ class User < ApplicationRecord
   validates :yourfoot_ID, presence: true, uniqueness: true, length: { in: 4..20 }, format: { with: VALID_YOURFOOTID_REGEX }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-  #  備考：パスワードデフォルトで６文字以上を要求している
+  #  備考：パスワードはデフォルトで６文字以上を要求している
 
   # ==============アソシエーション ================================
   has_many :user_relationships
@@ -63,7 +63,7 @@ class User < ApplicationRecord
   def following?(other_user)
     followings.include?(other_user)
   end
-  # 大会後もユーザーのデータは残しておくため、論理削除
+  # 退会後もユーザーのデータは残しておくため、論理削除
   enum is_deleted: { '退会済': true, '有効': false }
 
   def active_for_authentication?
